@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @protocol ZHWebViewDelegate <NSObject>
 
@@ -20,8 +21,11 @@
 
 - (void)ZHWebView:(UIView *)webView didFailLoadWithError:(NSError *)error;
 
-//@required
+//WKWebView中JS调用OC代码
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message;
+
 //iOS8以后需要实现,否则不会弹窗
+@required
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler ;
 
 - (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler;
@@ -30,7 +34,21 @@
 
 @end
 
-@interface ZHWebView : UIView
+//UIWebView中JS调用OC方法
+@protocol JSExportDelegate <JSExport>
+
+@required
+- (void)callSystemCamera;
+// 在JS中调用时，函数名应该为showAlertMsg(arg1, arg2)
+- (void)showAlert:(NSString *)title msg:(NSString *)msg;
+// 通过JSON传过来
+- (void)callWithDict:(NSDictionary *)params;
+// JS调用Oc，然后在OC中通过调用JS方法来传值给JS。
+- (void)jsCallObjcAndObjcCallJsWithDict:(NSDictionary *)params;
+
+@end
+
+@interface ZHWebView : UIView <JSExportDelegate>
 
 @property (nonatomic,assign) BOOL iOS8_OR_LATER;
 
@@ -42,6 +60,8 @@
 @property (nonatomic,assign) BOOL shouldShowProgressView;
 //进度条的颜色->默认是orange
 @property (nonatomic,strong) UIColor *progressColor;
+
+@property (nonatomic,strong) id<JSExportDelegate> JSExportObject;
 
 @property (nonatomic, readonly, strong) UIScrollView *scrollView;
 
@@ -66,3 +86,4 @@
 @property (nonatomic) BOOL scalesPageToFit;
 
 @end
+

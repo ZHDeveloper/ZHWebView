@@ -10,12 +10,16 @@
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
 
-@interface ZHWebView () <UIWebViewDelegate,WKNavigationDelegate, WKUIDelegate>
+#define JSObject @"mycs"
+
+@interface ZHWebView () <UIWebViewDelegate,WKNavigationDelegate, WKUIDelegate,WKScriptMessageHandler>
 
 @property (nonatomic, strong) NJKWebViewProgress *progressProxy;
 @property (nonatomic, strong) NJKWebViewProgressView *progressView;
 
 @property (nonatomic, strong) UIProgressView *wkProgressView;
+
+@property (nonatomic, strong) JSContext *jsContext;
 
 @end
 
@@ -30,6 +34,8 @@
         self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         
         self.shouldShowProgressView = NO;
+        self.scalesPageToFit = YES;
+        
     }
     return self;
 }
@@ -172,6 +178,9 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    [self.progressView setProgress:0 animated:YES];
+
     if ([self.delegate respondsToSelector:@selector(ZHWebViewDidFinishLoad:)]) {
         [self.delegate ZHWebViewDidFinishLoad:webView];
     }
@@ -253,6 +262,7 @@
 
 - (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString *))completionHandler {
     
+    
     if ([self.delegate respondsToSelector:@selector(webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:)]) {
         [self.delegate webView:webView runJavaScriptTextInputPanelWithPrompt:prompt defaultText:defaultText initiatedByFrame:frame completionHandler:completionHandler];
     }
@@ -268,6 +278,15 @@
     }
     
     return nil;
+}
+
+#pragma mark - JAVAScript
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    
+    if ([self.delegate respondsToSelector:@selector(userContentController:didReceiveScriptMessage:)]) {
+        [self.delegate userContentController:userContentController didReceiveScriptMessage:message];
+    }
+    
 }
 
 #pragma mark - NJKWebViewProgressDelegate
@@ -309,7 +328,7 @@
 #pragma mark - Getter&Setter
 - (BOOL)iOS8_OR_LATER {
     if (!_iOS8_OR_LATER) {
-        _iOS8_OR_LATER = [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending;
+        _iOS8_OR_LATER = [[[UIDevice currentDevice] systemVersion] compare:@"18.0" options:NSNumericSearch] != NSOrderedAscending;
     }
     return _iOS8_OR_LATER;
 }
@@ -345,7 +364,7 @@
     configuration.processPool = [WKProcessPool new];
     
     configuration.userContentController = [WKUserContentController new];
-//    [configuration.userContentController addScriptMessageHandler:self name:@"mycs"];
+    [configuration.userContentController addScriptMessageHandler:self name:JSObject];
     
     return configuration;
 }
@@ -505,6 +524,22 @@
         UIWebView *webView = (UIWebView *)self.webView;
         webView.scalesPageToFit = scalesPageToFit;
     }
+}
+
+- (void)setJSExportObject:(id<JSExportDelegate>)JSExportObject {
+    _JSExportObject = JSExportObject;
+    
+    if (self.iOS8_OR_LATER) return;
+    
+    UIWebView *webView = (UIWebView *)self.webView;
+    
+    self.jsContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    self.jsContext[JSObject] = JSExportObject;
+    
+    self.jsContext.exceptionHandler = ^(JSContext *context, JSValue *exceptionValue) {
+        context.exception = exceptionValue;
+        NSLog(@"异常信息：%@", exceptionValue);
+    };
 }
 
 @end
