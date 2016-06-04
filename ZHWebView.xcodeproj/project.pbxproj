@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53B86E8F1D025B8200FB6252 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B86E8A1D025B8200FB6252 /* NJKWebViewProgress.m */; };
+		53B86E901D025B8200FB6252 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B86E8C1D025B8200FB6252 /* NJKWebViewProgressView.m */; };
+		53B86E911D025B8200FB6252 /* ZHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B86E8E1D025B8200FB6252 /* ZHWebView.m */; };
 		53BB680A1D015D0900C4F9C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BB68091D015D0900C4F9C3 /* main.m */; };
 		53BB680D1D015D0900C4F9C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BB680C1D015D0900C4F9C3 /* AppDelegate.m */; };
 		53BB68101D015D0900C4F9C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BB680F1D015D0900C4F9C3 /* ViewController.m */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53B86E891D025B8200FB6252 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		53B86E8A1D025B8200FB6252 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		53B86E8B1D025B8200FB6252 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		53B86E8C1D025B8200FB6252 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		53B86E8D1D025B8200FB6252 /* ZHWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHWebView.h; sourceTree = "<group>"; };
+		53B86E8E1D025B8200FB6252 /* ZHWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHWebView.m; sourceTree = "<group>"; };
 		53BB68051D015D0900C4F9C3 /* ZHWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BB68091D015D0900C4F9C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53BB680B1D015D0900C4F9C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,6 +87,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53B86E871D025B8200FB6252 /* ZHWebView */ = {
+			isa = PBXGroup;
+			children = (
+				53B86E881D025B8200FB6252 /* NJKWebViewProgress */,
+				53B86E8D1D025B8200FB6252 /* ZHWebView.h */,
+				53B86E8E1D025B8200FB6252 /* ZHWebView.m */,
+			);
+			path = ZHWebView;
+			sourceTree = "<group>";
+		};
+		53B86E881D025B8200FB6252 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				53B86E891D025B8200FB6252 /* NJKWebViewProgress.h */,
+				53B86E8A1D025B8200FB6252 /* NJKWebViewProgress.m */,
+				53B86E8B1D025B8200FB6252 /* NJKWebViewProgressView.h */,
+				53B86E8C1D025B8200FB6252 /* NJKWebViewProgressView.m */,
+			);
+			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
 		53BB67FC1D015D0900C4F9C3 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +131,7 @@
 		53BB68071D015D0900C4F9C3 /* ZHWebView */ = {
 			isa = PBXGroup;
 			children = (
+				53B86E871D025B8200FB6252 /* ZHWebView */,
 				53BB680B1D015D0900C4F9C3 /* AppDelegate.h */,
 				53BB680C1D015D0900C4F9C3 /* AppDelegate.m */,
 				53BB680E1D015D0900C4F9C3 /* ViewController.h */,
@@ -270,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B86E8F1D025B8200FB6252 /* NJKWebViewProgress.m in Sources */,
+				53B86E901D025B8200FB6252 /* NJKWebViewProgressView.m in Sources */,
 				53BB68101D015D0900C4F9C3 /* ViewController.m in Sources */,
 				53BB680D1D015D0900C4F9C3 /* AppDelegate.m in Sources */,
 				53BB680A1D015D0900C4F9C3 /* main.m in Sources */,
+				53B86E911D025B8200FB6252 /* ZHWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +530,7 @@
 				53BB68341D015D0900C4F9C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53BB68351D015D0900C4F9C3 /* Build configuration list for PBXNativeTarget "ZHWebViewTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +539,7 @@
 				53BB68371D015D0900C4F9C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53BB68381D015D0900C4F9C3 /* Build configuration list for PBXNativeTarget "ZHWebViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +548,7 @@
 				53BB683A1D015D0900C4F9C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

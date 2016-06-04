@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "ZHWebView.h"
 
-@interface ViewController ()
+#define ScreenSize [UIScreen mainScreen].bounds.size
+#define ScreenWidth ScreenSize.width
+#define ScreenHeight ScreenSize.height
+
+@interface ViewController () <ZHWebViewDelegate>
 
 @end
 
@@ -16,12 +21,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    ZHWebView *view = [ZHWebView new];
+    view.frame = self.view.bounds;
+    
+    [self.view addSubview:view];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    [view loadRequest:request];
+    
+    view.shouldShowProgressView = YES;
+    
+    view.delegate = self;
+    
+    view.progressColor = [UIColor blueColor];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - ZHWebViewDelegate
+- (BOOL)ZHWebView:(UIView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    return YES;
 }
+
+- (void)ZHWebViewDidStartLoad:(UIView *)webView {
+    NSLog(@"开始加载");
+}
+
+- (void)ZHWebViewDidFinishLoad:(UIView *)webView {
+    NSLog(@"完成加载");
+}
+
+- (void)ZHWebView:(UIView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"加载失败");
+}
+
 
 @end
