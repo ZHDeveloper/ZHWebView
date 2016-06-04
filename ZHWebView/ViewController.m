@@ -27,7 +27,7 @@
     
     [self.view addSubview:view];
     
-    NSURL *fileURl = [[NSBundle mainBundle] URLForResource:@"test2.html" withExtension:nil];
+    NSURL *fileURl = [[NSBundle mainBundle] URLForResource:@"UIWebView测试.html" withExtension:nil];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:fileURl];
     

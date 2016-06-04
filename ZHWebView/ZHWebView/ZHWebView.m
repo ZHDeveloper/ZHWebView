@@ -328,7 +328,7 @@
 #pragma mark - Getter&Setter
 - (BOOL)iOS8_OR_LATER {
     if (!_iOS8_OR_LATER) {
-        _iOS8_OR_LATER = [[[UIDevice currentDevice] systemVersion] compare:@"18.0" options:NSNumericSearch] != NSOrderedAscending;
+        _iOS8_OR_LATER = [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending;
     }
     return _iOS8_OR_LATER;
 }
@@ -519,11 +519,11 @@
 }
 
 - (void)setScalesPageToFit:(BOOL)scalesPageToFit {
-    if (!self.iOS8_OR_LATER)
-    {
-        UIWebView *webView = (UIWebView *)self.webView;
-        webView.scalesPageToFit = scalesPageToFit;
-    }
+    
+    if (self.iOS8_OR_LATER) return;
+    
+    UIWebView *webView = (UIWebView *)self.webView;
+    webView.scalesPageToFit = scalesPageToFit;
 }
 
 - (void)setJSExportObject:(id<JSExportDelegate>)JSExportObject {

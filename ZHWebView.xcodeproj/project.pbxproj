@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		538CA4E81D029F5800B3D069 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 538CA4E71D029F5800B3D069 /* test.html */; };
-		539CC73F1D02B1F600C9E605 /* test2.html in Resources */ = {isa = PBXBuildFile; fileRef = 539CC73E1D02B1F600C9E605 /* test2.html */; };
+		538CA4E81D029F5800B3D069 /* WKWebView测试.html in Resources */ = {isa = PBXBuildFile; fileRef = 538CA4E71D029F5800B3D069 /* WKWebView测试.html */; };
+		539CC73F1D02B1F600C9E605 /* UIWebView测试.html in Resources */ = {isa = PBXBuildFile; fileRef = 539CC73E1D02B1F600C9E605 /* UIWebView测试.html */; };
 		53B86E8F1D025B8200FB6252 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B86E8A1D025B8200FB6252 /* NJKWebViewProgress.m */; };
 		53B86E901D025B8200FB6252 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B86E8C1D025B8200FB6252 /* NJKWebViewProgressView.m */; };
 		53B86E911D025B8200FB6252 /* ZHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B86E8E1D025B8200FB6252 /* ZHWebView.m */; };
@@ -40,8 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		538CA4E71D029F5800B3D069 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
-		539CC73E1D02B1F600C9E605 /* test2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test2.html; sourceTree = "<group>"; };
+		538CA4E71D029F5800B3D069 /* WKWebView测试.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "WKWebView测试.html"; sourceTree = "<group>"; };
+		539CC73E1D02B1F600C9E605 /* UIWebView测试.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "UIWebView测试.html"; sourceTree = "<group>"; };
 		53B86E891D025B8200FB6252 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
 		53B86E8A1D025B8200FB6252 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		53B86E8B1D025B8200FB6252 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
@@ -144,8 +144,8 @@
 				53BB68141D015D0900C4F9C3 /* Assets.xcassets */,
 				53BB68161D015D0900C4F9C3 /* LaunchScreen.storyboard */,
 				53BB68191D015D0900C4F9C3 /* Info.plist */,
-				539CC73E1D02B1F600C9E605 /* test2.html */,
-				538CA4E71D029F5800B3D069 /* test.html */,
+				539CC73E1D02B1F600C9E605 /* UIWebView测试.html */,
+				538CA4E71D029F5800B3D069 /* WKWebView测试.html */,
 				53BB68081D015D0900C4F9C3 /* Supporting Files */,
 			);
 			path = ZHWebView;
@@ -280,10 +280,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				538CA4E81D029F5800B3D069 /* test.html in Resources */,
+				538CA4E81D029F5800B3D069 /* WKWebView测试.html in Resources */,
 				53BB68181D015D0900C4F9C3 /* LaunchScreen.storyboard in Resources */,
 				53BB68151D015D0900C4F9C3 /* Assets.xcassets in Resources */,
-				539CC73F1D02B1F600C9E605 /* test2.html in Resources */,
+				539CC73F1D02B1F600C9E605 /* UIWebView测试.html in Resources */,
 				53BB68131D015D0900C4F9C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

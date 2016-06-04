@@ -48,7 +48,7 @@
 
 @end
 
-@interface ZHWebView : UIView <JSExportDelegate>
+@interface ZHWebView : UIView
 
 @property (nonatomic,assign) BOOL iOS8_OR_LATER;
 
@@ -61,6 +61,7 @@
 //进度条的颜色->默认是orange
 @property (nonatomic,strong) UIColor *progressColor;
 
+//UIWebView与JS交互的对象
 @property (nonatomic,strong) id<JSExportDelegate> JSExportObject;
 
 @property (nonatomic, readonly, strong) UIScrollView *scrollView;
